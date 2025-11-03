@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homehub_v2/screens/ratingpage.dart';
 import '../models/agency.dart';
 import '../models/product.dart';
 import '../widgets/product_card.dart';
@@ -166,7 +167,15 @@ class _PortfolioAgency extends State<PortfolioAgency> {
               bottom: 20,
               right: 20,
               child: FloatingActionButton(
-                onPressed: () {},
+                onPressed: () {
+                  // Navigate to Addratingpage
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Addratingpage(),
+                    ),
+                  );
+                },
                 backgroundColor: const Color(0xFF004E98),
                 shape: const CircleBorder(),
                 child: const Icon(Icons.add, size: 30, color: Colors.white),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homehub_v2/screens/addnewservice.dart';
 
 class PortfolioServiceProvider extends StatefulWidget {
   const PortfolioServiceProvider({super.key});
@@ -121,7 +122,15 @@ class _PortfolioServiceProvider extends State<PortfolioServiceProvider> {
               right: 20,
               child: FloatingActionButton(
                 onPressed: () {
-                  // Add your logic for Portfolio/Service button here
+                  if (selectedTab == 0) {
+                  } else if (selectedTab == 1) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Addnewservicepage(),
+                      ),
+                    );
+                  }
                 },
                 backgroundColor: const Color(0xFF004E98),
                 shape: const CircleBorder(),

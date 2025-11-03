@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prj_mob_dev/widgets/adddocumentationcard.dart';
+import 'package:homehub_v2/widgets/adddocumentationcard.dart';
 
 class Adddocumentationpage extends StatelessWidget {
   const Adddocumentationpage({super.key});

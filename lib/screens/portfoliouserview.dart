@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homehub_v2/screens/ratingpage.dart';
 
 class Portfolio extends StatefulWidget {
   const Portfolio({super.key});
@@ -141,7 +142,13 @@ class _PortfolioState extends State<Portfolio> {
               right: 20,
               child: FloatingActionButton(
                 onPressed: () {
-                  // Add review logic here
+                  // Navigate to Addratingpage
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Addratingpage(),
+                    ),
+                  );
                 },
                 backgroundColor: const Color(0xFF004E98),
                 shape: const CircleBorder(),
