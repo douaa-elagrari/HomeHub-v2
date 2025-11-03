@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homehub_v2/screens/loginpage.dart';
 import 'screens/home_screen.dart';
 import 'screens/splashscreen.dart';
 import 'screens/firstpage.dart';
@@ -40,6 +41,8 @@ class MyApp extends StatelessWidget {
             return MaterialPageRoute(builder: (_) => Verification());
           case '/homescreen':
             return MaterialPageRoute(builder: (_) => HomeScreen());
+          case '/login':
+            return MaterialPageRoute(builder: (_) => Loginpage());
 
           default:
             return MaterialPageRoute(

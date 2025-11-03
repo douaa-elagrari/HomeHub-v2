@@ -20,7 +20,9 @@ class Addratingpage extends StatelessWidget {
               child: SizedBox(
                 width: 250,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF004E98),
                     shape: RoundedRectangleBorder(

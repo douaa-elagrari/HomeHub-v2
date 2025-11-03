@@ -74,7 +74,9 @@ class _EditProfCardState extends State<EditProfCard> {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF004E98),
                   shape: RoundedRectangleBorder(

@@ -38,7 +38,7 @@ class _Welcome extends State<Welcome> {
               ),
               SizedBox(height: 60),
               Mybutton(
-                text: 'Hire a Service',
+                text: 'Sign In',
                 bgcolor: Color(0xFF004E98),
                 fgcolor: Colors.white,
                 onPressed: () {
@@ -47,11 +47,11 @@ class _Welcome extends State<Welcome> {
               ),
               SizedBox(height: 20),
               Mybutton(
-                text: 'Provide a Service',
+                text: 'Log In',
                 bgcolor: Colors.white,
                 fgcolor: Color(0xFF004E98),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/signin');
+                  Navigator.pushNamed(context, '/login');
                 },
               ),
               SizedBox(height: 200),

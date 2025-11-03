@@ -94,7 +94,9 @@ class _BuyCardState extends State<BuyCard> {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF004E98),
                   shape: RoundedRectangleBorder(

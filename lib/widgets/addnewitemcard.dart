@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homehub_v2/screens/profile_screen.dart';
 import 'package:homehub_v2/widgets/imageaploadwidget.dart';
 import 'package:homehub_v2/widgets/buildtextfeild.dart';
 
@@ -75,7 +76,14 @@ class _AddNewItemCardState extends State<AddNewItemCard> {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ProfileScreen(),
+                    ), //need to verify if profile screen is the one that shows up to the profile owner
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF004E98),
                   shape: RoundedRectangleBorder(

@@ -74,7 +74,11 @@ class _AddDocState extends State<AddDoc> {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(
+                    context,
+                  ); //As there is still not business logic behind the work the data is not sent to our database but it will be inshallah
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF004E98),
                   shape: RoundedRectangleBorder(

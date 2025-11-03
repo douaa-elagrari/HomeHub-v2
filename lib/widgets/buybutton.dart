@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homehub_v2/screens/buyforms.dart';
 
 class TheButton extends StatelessWidget {
   const TheButton({super.key});
@@ -9,7 +10,12 @@ class TheButton extends StatelessWidget {
       width: 120,
       height: 45,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Buyformspage()),
+          );
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: const Color(0xFF004E98),
           padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 12),
@@ -17,10 +23,7 @@ class TheButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
           ),
         ),
-        child: const Text(
-          'Buy Now',
-          style: TextStyle(color: Colors.white),
-        ),
+        child: const Text('Buy Now', style: TextStyle(color: Colors.white)),
       ),
     );
   }

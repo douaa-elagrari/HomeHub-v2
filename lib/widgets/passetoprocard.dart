@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homehub_v2/screens/homescreen.dart';
 
 class PasseToProCard extends StatefulWidget {
   const PasseToProCard({super.key});
@@ -77,7 +78,12 @@ class _PasseToProCardState extends State<PasseToProCard> {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomScreen()),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF004E98),
                   shape: RoundedRectangleBorder(
