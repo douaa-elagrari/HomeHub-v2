@@ -6,9 +6,7 @@ import 'package:homehub_v2/widgets/priceandbuy.dart';
 import 'package:homehub_v2/widgets/productinfocontainer.dart';
 
 class ProductLayout extends StatefulWidget {
-  final int productId;
-
-  const ProductLayout({super.key, required this.productId});
+  const ProductLayout({super.key}); // No parameters needed
 
   @override
   State<ProductLayout> createState() => _ProductLayoutState();
@@ -30,7 +28,20 @@ class _ProductLayoutState extends State<ProductLayout> {
 
   @override
   Widget build(BuildContext context) {
-    final product = products.firstWhere((p) => p.id == widget.productId);
+    // Hardcoded static product
+    final product = Product(
+      id: 1,
+      name: 'Static Product',
+      description: 'This is a description of a static product.',
+      price: 1500.0,
+
+      imageUrl: 'assets/images/static_product.jpg',
+      category: 'Electronics',
+      rating: 4.5,
+
+      availableColors: [Colors.red, Colors.blue, Colors.green],
+    );
+
     final double imageHeight = MediaQuery.of(context).size.height * 0.45;
     final double translateY = (-scrollOffset * 0.3).clamp(-80, 0);
     final double scale = (1 - scrollOffset / 800).clamp(0.9, 1.0);
@@ -39,7 +50,7 @@ class _ProductLayoutState extends State<ProductLayout> {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          // ======== IMAGE FROM ASSETS ========
+          // ======== IMAGE ========
           Transform.translate(
             offset: Offset(0, translateY),
             child: Transform.scale(
@@ -117,7 +128,7 @@ class _ProductLayoutState extends State<ProductLayout> {
             top: 40,
             left: 20,
             child: CircleAvatar(
-              backgroundColor: Colors.black.withValues(alpha: 0.4),
+              backgroundColor: Colors.black.withOpacity(0.4),
               child: IconButton(
                 icon: const Icon(Icons.arrow_back, color: Colors.white),
                 onPressed: () => Navigator.pop(context),
@@ -129,7 +140,3 @@ class _ProductLayoutState extends State<ProductLayout> {
     );
   }
 }
-
-/* this is the code for the product description screen, we used a stack to position the
-image under the container, then we completed the work using the widgets that we predefined
-previously*/

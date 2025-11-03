@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:homehub_v2/screens/buyforms.dart';
+import 'package:homehub_v2/screens/descriptionscreens.dart';
 import '../models/product.dart';
 import '../models/saved_item.dart';
 
@@ -16,89 +18,111 @@ class _ProductCardState extends State<ProductCard> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Card(
-          color: Colors.white,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
-          elevation: 2,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: Image.asset(
-                  widget.product.image,
-                  height: 140,
-                  width: double.infinity,
-                  fit: BoxFit.cover,
+        // CARD CLICK NAVIGATION
+        InkWell(
+          borderRadius: BorderRadius.circular(16),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ProductLayout()),
+            );
+          },
+          child: Card(
+            color: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
+            elevation: 2,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // PRODUCT IMAGE
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: Image.asset(
+                    widget.product.image,
+                    height: 140,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
 
-              Padding(
-                padding: const EdgeInsets.all(8),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // RATING
-                    Row(
-                      children: [
-                        const Icon(
-                          Icons.star,
-                          color: Color(0xFFFF6700),
-                          size: 16,
-                        ),
-                        const SizedBox(width: 4),
-                        Text(
-                          "${widget.product.rating}",
-                          style: const TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        const SizedBox(width: 4),
-                        Text(
-                          "(${widget.product.reviews})",
-                          style: TextStyle(
-                            fontSize: 10,
-                            color: Colors.grey[600],
-                          ),
-                        ),
-                      ],
-                    ),
-
-                    const SizedBox(height: 4),
-
-                    // NAME
-                    Text(
-                      widget.product.name,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-
-                    const SizedBox(height: 4),
-
-                    // PRICE + CART
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          widget.product.price,
-                          style: TextStyle(
-                            fontSize: 14,
+                // PRODUCT DETAILS
+                Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // RATING
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.star,
                             color: Color(0xFFFF6700),
-                            fontWeight: FontWeight.bold,
+                            size: 16,
                           ),
+                          const SizedBox(width: 4),
+                          Text(
+                            "${widget.product.rating}",
+                            style: const TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          const SizedBox(width: 4),
+                          Text(
+                            "(${widget.product.reviews})",
+                            style: TextStyle(
+                              fontSize: 10,
+                              color: Colors.grey[600],
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      const SizedBox(height: 4),
+
+                      // NAME
+                      Text(
+                        widget.product.name,
+                        style: const TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
                         ),
-                        const Icon(
-                          Icons.shopping_cart,
-                          color: Color(0xFFFF6700),
-                        ),
-                      ],
-                    ),
-                  ],
+                      ),
+
+                      const SizedBox(height: 4),
+
+                      // PRICE + CART BUTTON
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            widget.product.price,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Color(0xFFFF6700),
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          IconButton(
+                            icon: const Icon(
+                              Icons.shopping_cart,
+                              color: Color(0xFFFF6700),
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Buyformspage(),
+                                ),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
 
@@ -111,7 +135,7 @@ class _ProductCardState extends State<ProductCard> {
               likedItems.any((l) => l.item == widget.product)
                   ? Icons.favorite
                   : Icons.favorite_border,
-              color: Color(0xFFFF6700),
+              color: const Color(0xFFFF6700),
             ),
             onPressed: () {
               setState(() {
